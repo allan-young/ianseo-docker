@@ -1,0 +1,35 @@
+# This file is part of ianseo-docker, which is distributed under
+# the terms of the General Public License (GPL), version 3. See
+# LICENSE.txt for details.
+#
+# Copyright (C) 2020 Allan Young
+
+version: "2"
+services:
+    web:
+        build: .
+        ports: 
+            - "80:80"
+        volumes:
+            - web_volume:/var/www/html/
+        depends_on:
+            - db
+        networks:
+            default:
+                aliases:
+                  - ianseo_docker_web
+    db:
+        image: mysql:5.7.29
+        environment:
+            MYSQL_ROOT_PASSWORD: docker_db_root
+        volumes:
+            - db_volume:/var/lib/mysql
+            - ./db_init:/docker-entrypoint-initdb.d/
+        networks:
+            default:
+                aliases:
+                  - ianseo_docker_db
+
+volumes:
+    db_volume:
+    web_volume:
