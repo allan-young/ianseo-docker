@@ -8,7 +8,7 @@ version: "2"
 services:
     web:
         build: .
-        ports: 
+        ports:
             - "80:80"
         volumes:
             - web_volume:/var/www/html/
@@ -17,9 +17,9 @@ services:
         networks:
             default:
                 aliases:
-                  - ianseo_docker_web
+                    - ianseo_docker_web
     db:
-        image: mysql:5.7.29
+        image: mariadb:10.9.4
         environment:
             MYSQL_ROOT_PASSWORD: docker_db_root
         volumes:
@@ -28,7 +28,7 @@ services:
         networks:
             default:
                 aliases:
-                  - ianseo_docker_db
+                    - ianseo_docker_db
 
 volumes:
     db_volume:
