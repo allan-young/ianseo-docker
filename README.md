@@ -1,14 +1,14 @@
 # Ianseo on Docker
 
-An effort to run ianseo archery tournament management software in a
+An effort to run i@nseo archery tournament management software in a
 Docker environment.
 
 ## Description
 
 Ianseo is popular open source software used to manage archery
-competitions.  Given that the ianseo implementation can use Linux,
+competitions. Given that the ianseo implementation can use Linux,
 Apache, MySQL, and PHP I figured, as a learning experience, it would
-be worthwhile to get ianseo running in a Docker environment.  I chose
+be worthwhile to get ianseo running in a Docker environment. I chose
 to use the official Docker php:apache and mysql offerings and use
 docker-compose to define and run the resulting multi-container
 environment.
@@ -24,7 +24,7 @@ results and updates are persisted.
 
 Note that this ianseo/Docker effort is not formally part of the ianseo
 project, the intent here is only to provide a means to leverage the
-ianseo implementation in a Docker environment.  I have not tested all
+ianseo implementation in a Docker environment. I have not tested all
 of the ianseo software functionality in this Docker configuration but
 suspect that what is provided here should be sufficient for a basic
 ianseo evaluation.
@@ -33,16 +33,16 @@ ianseo evaluation.
 
 Getting a containerized ianseo instance up and running should be
 simple once you have a sane Docker environment in place and have
-obtained the ianseo implementation (Ianseo_20190701.zip).
+downloaded the ianseo software (Ianseo_20220701.zip as of 2023-01-22).
 
 You'll need to get the ianseo release in zip file format from the
 ianseo site.  The current and previous releases have been available at
 [http://www.ianseo.net/Release/](http://www.ianseo.net/Release/) and
 the testing of this Docker effort has been against
-[https://www.ianseo.net/Release/Ianseo_20190701.zip](https://www.ianseo.net/Release/Ianseo_20190701.zip).
+[https://www.ianseo.net/Release/Ianseo_20220701.zip](https://www.ianseo.net/Release/Ianseo_20220701.zip).
 
 The ianseo zip file is placed in the base directory of this project.
-When _docker-compose build_ is issued a support script will populate
+When _docker-compose build_ is issued, a support script will populate
 the web server container/volume with the ianseo release and perform
 the required installation steps.
 
@@ -59,7 +59,7 @@ See
 
 ### Docker Compose
 
-You'll also need docker-compose.  The Docker documentation for
+You'll also need docker-compose. The Docker documentation for
 obtaining docker-compose can be found at
 [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/) and for Linux this basically amounts to:
 
@@ -87,9 +87,9 @@ available from:
 [https://www.ianseo.net/Releases.php](https://www.ianseo.net/Releases.php)
 
 The ianseo release in zip file format can be downloaded from ianseo.
-Testing was performed using Ianseo_20190701.zip.
+Testing was performed using Ianseo_20220701.zip.
    
-    wget --quiet https://www.ianseo.net/Release/Ianseo_20190701.zip
+    wget --quiet https://www.ianseo.net/Release/Ianseo_20220701.zip
 
 The ianseo zip file goes into the base directory of this project.
 
@@ -97,7 +97,7 @@ Step 3. Run _docker-compose build_ to build the containers
 
 Change into the directory where the project is, the files in this
 directory include docker-compose.yml, Dockerfile and the ianseo zip
-file from step 2.  Depending on your user and Docker configuration you
+file from step 2. Depending on your user and Docker configuration you
 may need to run the docker-compose command as root (or use sudo).
 
     [allan@localhost ianseo-docker]$ sudo /usr/local/bin/docker-compose build
@@ -137,14 +137,14 @@ the terminal where the 'docker-compose up' was issued.
 
 Step 2. Use a browser to connect to and use ianseo
 
-Connect a web browser to the ianseo instance.  If the browser is being
+Connect a web browser to the ianseo instance. If the browser is being
 run on the same computer where you issued the _docker-compose up_ you
 can specify the following URL:
 
 http://localhost/ianseo/
 
 Otherwise you'll need to get the IP address of computer running the
-docker containers.  One of my test systems running an instance of
+docker containers. One of my test systems running an instance of
 ianseo is on 192.168.2.55 so, in my case. I'd use the following URL in
 my web browser:
 
@@ -165,26 +165,26 @@ checkbox).
 c. _PHP settings_ should be displayed showing various php.ini
 parameters.  Click the _Continue_ at the bottom.
 
-d. The _Database connection data_ should be displayed.  Simply use the
+d. The _Database connection data_ should be displayed. Simply use the
 default entries, the Host will be set to _ianseo\_docker\_db_ and the
 ADMIN Password field at the bottom will be blank (not needed since we
-have already created the ianseo MySQL database and user).  Still, we
+have already created the ianseo MySQL database and user). Still, we
 need to click the _Create user and database_ button to finish the
 database initialization.
 
 e. After a few seconds you should see an _Installation successful_
-message.  From here you can select _Modules->Update Ianseo_, agree to
+message. From here you can select _Modules->Update Ianseo_, agree to
 the GPL3 license (if prompted), and then click the _Ok_ button which
 proceeds with the online software update.
 
-f. You should now be set to use the ianseo application.  For example
+f. You should now be set to use the ianseo application. For example
 you can select Competition->New.
 
 Step 3. Run _docker-compose down_ to shutdown the ianseo application
 
 From another shell on your Docker host you change into the same
 directory where you issued the _docker-compose up_ and issue
-_docker-compose down_ to stop the ianseo application.  This will
+_docker-compose down_ to stop the ianseo application. This will
 gracefully shutdown the web and database containers.
 
     [allan@localhost ianseo-docker]$ sudo /usr/local/bin/docker-compose down
