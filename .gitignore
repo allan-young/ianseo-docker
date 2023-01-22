@@ -1,3 +1,5 @@
 # Ignore Mac stuff
 .DS_Store
 
+# Don't track Ianseo .zip files
+Ianseo_[0-9]*.zip
