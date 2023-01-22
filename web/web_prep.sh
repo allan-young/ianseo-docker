@@ -20,7 +20,7 @@
 #    initial configuration page(s) when we first connect to the
 #    server.
 # 6. Delete the zip Ianseo file to save space.
-IANSEO_ZIP=/tmp/Ianseo_20190701.zip
+IANSEO_ZIP=/tmp/Ianseo_20220701.zip
 INSTALL_DIR=/var/www/html/ianseo
 INDEX_PHP=$INSTALL_DIR/Install/index.php
 

@@ -4,17 +4,17 @@
 #
 # Copyright (C) 2020 Allan Young
 
-FROM php:7.4.2-apache
+FROM php:7.4.33-apache
 
 RUN apt-get update && apt-get -y install \
-       libfreetype6-dev \
-       libjpeg62-turbo-dev \
-       libmagickwand-dev \
-       libpng-dev \
-       mariadb-client \
-       unzip \
-       vim \
-       zip \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libmagickwand-dev \
+    libpng-dev \
+    mariadb-client \
+    unzip \
+    vim \
+    zip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd mysqli
 
@@ -33,6 +33,6 @@ COPY web/ianseo.conf /etc/apache2/conf-available/
 COPY web/php.ini /usr/local/etc/php/
 COPY web/web_prep.sh /tmp
 COPY web/phpinfo.php /tmp
-COPY Ianseo_20190701.zip /tmp
+COPY Ianseo_20220701.zip /tmp
 
 RUN /tmp/web_prep.sh
